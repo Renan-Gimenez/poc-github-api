@@ -24,8 +24,39 @@ const callAPI = () => {
             ul.append(li);
             errorDiv.classList.add('hide');
         })))
-        .catch(error => console.log("ERROR"))
+
+    .catch(error => {
+        info.classList.add('hide');
+        errorDiv.classList.remove('hide');
+        errorDiv.innerText = 'User Not Found';
+    })
 }
+
+// const callAPI2 = () => {
+//     fetch(`https://api.github.com/users/${username}/repos`)
+//     .then(res => res.json())
+//     .then(data => data.map((item) => {
+//         reposDiv.innerText = `${data.length} repositories:`;
+
+//         if (data.message === 'Not Found') {
+//             const li = document.createElement('li');
+//             li.innerText = item.name;
+            
+//             ul.append(li);
+//             errorDiv.classList.add('hide');
+//         }
+//     }))
+    
+//     .catch(error => {
+//         errorDiv.classList.remove('hide');
+//         errorDiv.innerText = 'User Not Found';
+
+//         alert("User Not Found");
+
+//         console.log("ERROR")
+//         console.log("NAO ACHOU");
+//     })
+// }
 
 const updateURL = () => {
     reposDiv.innerText = '';
@@ -43,10 +74,25 @@ const updateURL = () => {
         clearUl();
         
         errorDiv.classList.remove('hide');
+        errorDiv.innerText = 'Enter a username';
         reposDiv.classList.add('hide');
         info.classList.add('hide');
     }
 }
+
+// const updateURL2 = () => {
+//     const endPoint = "https://cfbcursos.repl.co/";
+
+//     fetch(endPoint)
+//     .then(res => res.json())
+//     .then(data => {
+//         console.log(data);
+//         errorDiv.innerText = `${data.pressao}`;
+
+//     })
+// }
+
+// setInterval(updateURL2, 3000);
 
 input.addEventListener("change", (e) => {
     username = e.target.value;
