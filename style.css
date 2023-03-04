@@ -8,12 +8,12 @@
 }
 
 body {
-    height: 100%;
-    padding: 10%;
+    min-height: 100vh;
+    padding: 20vh 10vw;
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 
     background-color: #121214;
 }
